@@ -1,6 +1,8 @@
 package com.example.movielistandroid
 
 import android.app.Application
+import dagger.hilt.android.HiltAndroidApp
 
-class Application : Application() {
-}
+
+@HiltAndroidApp
+class Application : Application() {}
