@@ -35,18 +35,15 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/tabLayoutIndıcator"
+            <LinearLayout
+                android:id="@+id/tabLayoutIndıcatorLayout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:color/transparent"
-                app:elevation="0dp"
+                android:layout_height="40dp"
+                android:gravity="center|center_vertical"
+                android:orientation="horizontal"
                 app:layout_constraintBottom_toBottomOf="@+id/nowPlayingSlider"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/nowPlayingSlider"
-                app:tabBackground="@android:color/transparent"
-                app:tabGravity="center"
-                app:tabIndicatorHeight="0dp"/>
+                app:layout_constraintStart_toStartOf="@+id/nowPlayingSlider" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/upComingRecyclerView"

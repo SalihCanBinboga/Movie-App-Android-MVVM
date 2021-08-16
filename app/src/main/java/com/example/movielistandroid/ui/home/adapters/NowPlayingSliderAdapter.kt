@@ -9,7 +9,7 @@ import com.example.movielistandroid.data.models.MoviesResponseModel
 import com.example.movielistandroid.databinding.ItemSliderBinding
 import com.example.movielistandroid.databinding.ItemUpComingListBinding
 
-class NowPlayingSliderAdapter(private var moviesModel: MoviesResponseModel?, private val mContext: Context) : RecyclerView.Adapter<NowPlayingSliderAdapter.ViewHolder>() {
+class NowPlayingSliderAdapter(var moviesModel: MoviesResponseModel?, private val mContext: Context) : RecyclerView.Adapter<NowPlayingSliderAdapter.ViewHolder>() {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         moviesModel?.let {
