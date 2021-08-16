@@ -1,9 +1,11 @@
 package com.example.movielistandroid.data.remote
 
 import com.example.movielistandroid.data.models.MoviesResponseModel
+import com.example.movielistandroid.data.models.Results
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface MovieService {
@@ -14,6 +16,9 @@ interface MovieService {
 
     @GET("3/movie/upcoming")
     suspend fun getUpComingMovies(@Query("api_key") apiKey: String): MoviesResponseModel
+
+    @GET("3/movie/{movieID}")
+    suspend fun getMovie(@Query("api_key") apiKey: String, @Path("movieID") movieID: String): Results
 
 
     companion object {

@@ -12,4 +12,5 @@ class MoviesRepositoryImpl
 
     override suspend fun getCurrentPlayingMovies() = movieService.getCurrentPlayingMovies(apiKey = MOVIE_API_KEY)
     override suspend fun getUpComingMovies() = movieService.getUpComingMovies(apiKey = MOVIE_API_KEY);
+    override suspend fun getMovie(movieID: String) = movieService.getMovie(apiKey = MOVIE_API_KEY, movieID = movieID);
 }
