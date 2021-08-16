@@ -121,16 +121,16 @@
         android:id="@+id/sameMoviesTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
+        android:layout_marginBottom="8dp"
         android:fontFamily="@font/roboto_bold"
+        android:text="@string/same_movies"
         android:textColor="@color/black"
         android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@+id/upComingRecyclerView"
-        app:layout_constraintStart_toStartOf="@+id/upComingRecyclerView"
-        tools:text="Benzer Filmler" />
+        app:layout_constraintBottom_toTopOf="@+id/similarRecyclerView"
+        app:layout_constraintStart_toStartOf="@+id/similarRecyclerView" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/upComingRecyclerView"
+        android:id="@+id/similarRecyclerView"
         android:layout_width="0dp"
         android:layout_height="145dp"
         android:layout_marginStart="16dp"
