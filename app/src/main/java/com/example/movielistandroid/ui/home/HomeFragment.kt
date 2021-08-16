@@ -49,15 +49,15 @@ class HomeFragment : Fragment() {
             it?.let { resource ->
                 when (resource.status) {
                     Status.SUCCESS -> {
-                        binding.upComingMoviesProgressBar.visibility = View.GONE
+                        binding.moviesProgressBar.visibility = View.GONE
                         resource.data?.let { movieResponse -> updateSliderData(movieResponse = movieResponse) }
                     }
                     Status.ERROR -> {
-                        binding.upComingMoviesProgressBar.visibility = View.GONE
+                        binding.moviesProgressBar.visibility = View.GONE
                         Toast.makeText(requireContext(), it.message, Toast.LENGTH_LONG).show()
                     }
                     Status.LOADING -> {
-                        binding.upComingMoviesProgressBar.visibility = View.VISIBLE
+                        binding.moviesProgressBar.visibility = View.VISIBLE
                     }
                 }
             }
