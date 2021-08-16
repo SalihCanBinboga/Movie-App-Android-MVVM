@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.viewModels
 import com.example.movielistandroid.data.models.MoviesResponseModel
 import com.example.movielistandroid.databinding.FragmentHomeBinding
+import com.example.movielistandroid.ui.home.adapters.NowPlayingSliderAdapter
 import com.example.movielistandroid.ui.home.adapters.UpComingMoviesAdapter
 import com.example.movielistandroid.utils.Status
 import dagger.hilt.android.AndroidEntryPoint
@@ -28,19 +29,24 @@ class HomeFragment : Fragment() {
     }
 
     private val homeViewModel: HomeViewModel by viewModels()
+    lateinit var upComingMoviesAdapter: UpComingMoviesAdapter
+    lateinit var nowPlayingSliderAdapter: NowPlayingSliderAdapter
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         setupUI()
         setupObservers()
         super.onViewCreated(view, savedInstanceState)
     }
 
-    lateinit var upComingMoviesAdapter: UpComingMoviesAdapter
-
     private fun setupUI() {
         upComingMoviesAdapter = UpComingMoviesAdapter(null, requireContext())
         binding.upComingRecyclerView.apply {
             setHasFixedSize(true)
             adapter = upComingMoviesAdapter
+        }
+        nowPlayingSliderAdapter = NowPlayingSliderAdapter(null, requireContext())
+        binding.nowPlayingSlider.apply {
+            adapter = nowPlayingSliderAdapter
         }
     }
 
@@ -66,12 +72,16 @@ class HomeFragment : Fragment() {
             it?.let { resource ->
                 when (resource.status) {
                     Status.SUCCESS -> {
+                        binding.moviesProgressBar.visibility = View.GONE
                         resource.data?.let { movieResponse -> updateUpComingMoviesList(movieResponse = movieResponse) }
                     }
                     Status.ERROR -> {
+                        binding.moviesProgressBar.visibility = View.GONE
                         Toast.makeText(requireContext(), it.message, Toast.LENGTH_LONG).show()
                     }
-                    Status.LOADING -> {}
+                    Status.LOADING -> {
+                        binding.moviesProgressBar.visibility = View.VISIBLE
+                    }
                 }
             }
         })
@@ -81,6 +91,8 @@ class HomeFragment : Fragment() {
         upComingMoviesAdapter.updateMoviesModel(moviesModel = movieResponse)
     }
 
-    private fun updateSliderData(movieResponse: MoviesResponseModel) {}
+    private fun updateSliderData(movieResponse: MoviesResponseModel) {
+        nowPlayingSliderAdapter.updateMoviesModel(moviesModel = movieResponse)
+    }
 
 }
