@@ -1,3 +1,5 @@
+package com.example.movielistandroid.data.models
+
 import com.google.gson.annotations.SerializedName
 
 data class MoviesResponseModel (
