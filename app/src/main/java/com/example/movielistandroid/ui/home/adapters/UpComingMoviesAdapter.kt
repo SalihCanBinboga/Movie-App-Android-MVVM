@@ -1,11 +1,11 @@
 package com.example.movielistandroid.ui.home.adapters
 
-import MoviesResponseModel
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.movielistandroid.data.models.MoviesResponseModel
 import com.example.movielistandroid.databinding.ItemUpComingListBinding
 
 class UpComingMoviesAdapter(private var moviesModel: MoviesResponseModel?, private val mContext: Context) : RecyclerView.Adapter<UpComingMoviesAdapter.ViewHolder>() {
@@ -20,7 +20,7 @@ class UpComingMoviesAdapter(private var moviesModel: MoviesResponseModel?, priva
             view.movieTitleTextView.text = model.original_title
 
             Glide.with(mContext)
-                .load("https://www.themoviedb.org/t/p/w600_and_h900_bestv2${model.poster_path}.jpg")
+                .load("https://www.themoviedb.org/t/p/w600_and_h900_bestv2${model.poster_path}")
                 .into(view.movieImageView)
         }
 
