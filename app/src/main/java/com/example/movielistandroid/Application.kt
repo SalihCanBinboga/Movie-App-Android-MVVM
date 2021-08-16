@@ -1,8 +1,7 @@
 package com.example.movielistandroid
 
-import android.app.Application
+import androidx.multidex.MultiDexApplication
 import dagger.hilt.android.HiltAndroidApp
 
-
 @HiltAndroidApp
-class Application : Application() {}
+class Application : MultiDexApplication() {}
