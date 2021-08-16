@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MovieListAndroid</string>
+    <string name="same_movies">Benzer Filmler</string>
 </resources>
