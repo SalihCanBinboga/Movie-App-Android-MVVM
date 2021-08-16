@@ -3,18 +3,25 @@ package com.example.movielistandroid.ui.home.adapters
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.movielistandroid.data.models.MoviesResponseModel
 import com.example.movielistandroid.databinding.ItemSliderBinding
 import com.example.movielistandroid.databinding.ItemUpComingListBinding
+import com.example.movielistandroid.ui.home.HomeFragmentDirections
 
 class NowPlayingSliderAdapter(var moviesModel: MoviesResponseModel?, private val mContext: Context) : RecyclerView.Adapter<NowPlayingSliderAdapter.ViewHolder>() {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        moviesModel?.let {
-            val model = it.results[position]
+        moviesModel?.let { models ->
+            val model = models.results[position]
             val view = holder.binding
+
+            view.root.setOnClickListener {
+                val directions = HomeFragmentDirections.actionHomeFragmentToDetailFragment(movieID = model.id.toString())
+                it.findNavController().navigate(directions)
+            }
 
             view.sliderTitleTextView.text = model.original_title
             view.sliderSubTitleTextView.text = model.overview
