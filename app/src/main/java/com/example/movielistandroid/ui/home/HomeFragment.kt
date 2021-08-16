@@ -12,6 +12,7 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.example.movielistandroid.R
 import com.example.movielistandroid.data.models.MoviesResponseModel
@@ -113,9 +114,12 @@ class HomeFragment : Fragment() {
         if (movieResponse.results.isNotEmpty()) {
 
             lifecycleScope.launch {
-                while (true) {
+                while (findNavController().currentDestination!!.label == "fragment_home") {
                     for (i in 0..movieResponse.results.size) {
                         delay(1500)
+                        if(findNavController().currentDestination!!.label != "fragment_home"){
+                            break
+                        }
                         if (i == 0) {
                             binding.nowPlayingSlider.setCurrentItem(i, false)
                         } else {
@@ -132,9 +136,7 @@ class HomeFragment : Fragment() {
         binding.tabLayoutIndCatorLayout.removeAllViews()
 
         nowPlayingSliderAdapter.moviesModel?.let {
-            println("bum bir ${it.results.size}")
             for (i in 0..it.results.size) {
-                println("bum iki ${it.results.size}")
                 val indicator = TextView(requireContext())
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
