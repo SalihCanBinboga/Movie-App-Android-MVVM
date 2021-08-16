@@ -24,17 +24,16 @@
             android:layout_height="wrap_content">
 
 
-            <androidx.viewpager.widget.ViewPager
+            <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/nowPlayingSlider"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="256dp"
-                android:background="@android:color/holo_blue_bright"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-            </androidx.viewpager.widget.ViewPager>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tabLayoutIndıcator"
@@ -47,33 +46,7 @@
                 app:layout_constraintStart_toStartOf="@+id/nowPlayingSlider"
                 app:tabBackground="@android:color/transparent"
                 app:tabGravity="center"
-                app:tabIndicatorHeight="0dp" />
-
-            <TextView
-                android:id="@+id/sliderTitleTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:fontFamily="@font/roboto_bold"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toTopOf="@+id/sliderSubTitleTextView"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:text="Moonrise Kingdom (2012)"
-                tools:textColor="@color/black" />
-
-            <TextView
-                android:id="@+id/sliderSubTitleTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="2dp"
-                android:fontFamily="@font/roboto_bold"
-                android:textColor="@color/white"
-                android:textSize="12sp"
-                app:layout_constraintBottom_toTopOf="@+id/tabLayoutIndıcator"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:text="A pair of young lovers flee their New England town, which causes a local search party to fan out to find them."
-                tools:textColor="@color/black" />
+                app:tabIndicatorHeight="0dp"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/upComingRecyclerView"
