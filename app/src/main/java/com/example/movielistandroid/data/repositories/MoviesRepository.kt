@@ -8,4 +8,5 @@ interface MoviesRepository {
     suspend fun getCurrentPlayingMovies(): MoviesResponseModel
     suspend fun getUpComingMovies(): MoviesResponseModel
     suspend fun getMovie(movieID: String): Results
+    suspend fun getMovieSimilar(movieID: String): MoviesResponseModel
 }
