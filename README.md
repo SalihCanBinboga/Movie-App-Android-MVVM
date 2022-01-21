@@ -1,7 +1,7 @@
 
 # Movie List App
 
-It is a sample project that I made to repeat some structures. The project aims to list the movies that are on the air and the movies that are coming soon. 
+The project aims to list the movies that are on the air and the movies that are coming soon. 
 You can also search for movies, view the details, and get specific recommendations for your favorite movie.
 ## Packages
 
